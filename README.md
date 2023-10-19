@@ -49,5 +49,30 @@ ipv6 access-list <name>
 exit
 interface <interface>
 ipv6 traffic-filter <name> {in|out}
-eixt
+exit
+```
+
+# DHCP
+```
+ip dhcp excluded-address <start ip> [<end ip>]
+ip dhcp pool <name>
+network <ip> <netmask>
+default router <ip>
+domain-name <domain>
+[dns-server <ip>]
+exit
+```
+
+# NAT
+```
+access-list <n> permit <inside ip> <wildcard mask>
+ip nat inside source list <n> interface <outside interface> overload
+
+interface <outside interface>
+ip nat outside
+exit
+
+interface <inside interface>
+ip nat inside
+exit
 ```
